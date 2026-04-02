@@ -3,26 +3,242 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Chairman Card – Support</title>
+  <title>Chairman Card – Support & Privacy</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+      background: #0a0f1c;
+      color: #e0e0e0;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+      padding: 80px 20px 60px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(228,175,62,0.06) 0%, transparent 70%);
+      animation: pulse 8s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 0.5; }
+      50% { transform: scale(1.1); opacity: 1; }
+    }
+
+    .hero-content { position: relative; z-index: 1; }
+
+    .logo-icon {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, #e4af3e, #f5c842);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+      font-size: 40px;
+      box-shadow: 0 8px 32px rgba(228,175,62,0.3);
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 12px;
+      letter-spacing: -0.5px;
+    }
+
+    .subtitle {
+      font-size: 1.1rem;
+      color: #a0aec0;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .cards {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      padding: 48px 0 60px;
+    }
+
+    .card {
+      background: linear-gradient(145deg, #141b2d, #1a2332);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 16px;
+      padding: 36px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+
+    .card-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+
+    .card-icon.support { background: rgba(99,179,237,0.15); }
+    .card-icon.privacy { background: rgba(104,211,145,0.15); }
+
+    h2 {
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: #ffffff;
+    }
+
+    .card p {
+      color: #a0aec0;
+      font-size: 1rem;
+      margin-bottom: 14px;
+    }
+
+    .card p:last-child { margin-bottom: 0; }
+
+    .email-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, #e4af3e, #d4982a);
+      color: #0a0f1c;
+      text-decoration: none;
+      padding: 12px 24px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin-top: 8px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .email-link:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(228,175,62,0.3);
+    }
+
+    .privacy-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .privacy-list li {
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      color: #a0aec0;
+    }
+
+    .privacy-list li:last-child { border-bottom: none; }
+
+    .check-icon {
+      color: #68d391;
+      font-size: 18px;
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+
+    footer {
+      text-align: center;
+      padding: 32px 20px;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      color: #4a5568;
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 600px) {
+      .hero { padding: 60px 20px 40px; }
+      h1 { font-size: 2rem; }
+      .card { padding: 28px; }
+    }
+  </style>
 </head>
-<body style="font-family: Arial, sans-serif; max-width: 720px; margin: 40px auto; padding: 20px; line-height: 1.6; color: #333;">
+<body>
 
-  <h1>Chairman Card</h1>
-  <p>Swipe-based football club management card game. You are the chairman — every decision shapes the fate of your club.</p>
+  <section class="hero">
+    <div class="hero-content">
+      <div class="logo-icon">⚽</div>
+      <h1>Chairman Card</h1>
+      <p class="subtitle">Swipe-based football club management card game. You are the chairman — every decision shapes the fate of your club.</p>
+    </div>
+  </section>
 
-  <hr />
+  <div class="container">
+    <div class="cards">
 
-  <h2>Support</h2>
-  <p>If you have any questions, feedback, or need assistance, please contact us:</p>
-  <p><strong>Email:</strong> loopiosoftware@gmail.com</p>
+      <div class="card">
+        <div class="card-header">
+          <div class="card-icon support">✉</div>
+          <h2>Support</h2>
+        </div>
+        <p>If you have any questions, feedback, or need assistance, please contact us:</p>
+        <a href="mailto:loopiosoftware@gmail.com" class="email-link">
+          ✉ loopiosoftware@gmail.com
+        </a>
+      </div>
 
-  <hr />
+      <div class="card">
+        <div class="card-header">
+          <div class="card-icon privacy">🔒</div>
+          <h2>Privacy</h2>
+        </div>
+        <ul class="privacy-list">
+          <li>
+            <span class="check-icon">✓</span>
+            <span>Chairman Card does not collect, store, or share personal information.</span>
+          </li>
+          <li>
+            <span class="check-icon">✓</span>
+            <span>The app contains no third-party tracking.</span>
+          </li>
+          <li>
+            <span class="check-icon">✓</span>
+            <span>All game data is stored locally on your device.</span>
+          </li>
+        </ul>
+      </div>
 
-  <h2>Privacy</h2>
-  <p>Chairman Card does not collect, store, or share personal information.</p>
-  <p>The app contains no third-party tracking. All game data is stored locally on your device.</p>
+    </div>
+  </div>
 
-  <p>Last updated: March 2026</p>
+  <footer>
+    <p>Last updated: March 2026</p>
+  </footer>
 
 </body>
 </html>
